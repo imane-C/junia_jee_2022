@@ -39,8 +39,7 @@ public class CompanyController {
 
     @PostMapping(value = "/form")
     public String submitForm(@ModelAttribute("company") Company company){
-
-        // Save company data
+        service.save(company);
 
         return "redirect:list";
     }
