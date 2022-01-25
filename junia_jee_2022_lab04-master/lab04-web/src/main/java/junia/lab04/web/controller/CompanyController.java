@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -27,6 +28,13 @@ public class CompanyController {
         modelMap.put("companies", companiesList);
 
         return "companiesList";
+    }
+
+    @GetMapping(value = "{companyId}/delete")
+    public String removeCompany(@PathVariable long companyId){
+        service.deleteById(companyId);
+
+        return "redirect:../list";
     }
 
     @GetMapping(value = "/form")
