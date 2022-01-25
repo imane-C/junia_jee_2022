@@ -30,12 +30,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public VelocityViewResolver velocityViewResolver() {
         VelocityViewResolver velocityViewResolver = new VelocityViewResolver();
-        velocityViewResolver.setPrefix("/WEB-INF/velocity");
         velocityViewResolver.setSuffix(".vm");
 
         return velocityViewResolver;
     }
-
-
-
 }
