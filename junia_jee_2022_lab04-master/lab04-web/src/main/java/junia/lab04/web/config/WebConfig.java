@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = "junia.lab04.web.controller")
+@ComponentScan(basePackages = { "junia.lab04.web.controller" })
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
@@ -20,17 +20,20 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public com.shieldsolutions.velocity.view.VelocityConfigurer VelocityConfigurer(){
+    public VelocityConfigurer velocityConfigurer(){
         VelocityConfigurer velocityConfigurer = new VelocityConfigurer();
         velocityConfigurer.setResourceLoaderPath("/WEB-INF/velocity");
+
         return velocityConfigurer;
     }
 
     @Bean
     public VelocityViewResolver velocityViewResolver() {
-        VelocityViewResolver bean = new VelocityViewResolver();
-        bean.setSuffix(".vm");
-        return bean;
+        VelocityViewResolver velocityViewResolver = new VelocityViewResolver();
+        velocityViewResolver.setPrefix("/WEB-INF/velocity");
+        velocityViewResolver.setSuffix(".vm");
+
+        return velocityViewResolver;
     }
 
 
