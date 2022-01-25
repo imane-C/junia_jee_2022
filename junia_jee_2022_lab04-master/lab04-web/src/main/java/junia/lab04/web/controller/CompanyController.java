@@ -1,27 +1,47 @@
 package junia.lab04.web.controller;
 
+import junia.lab04.core.dao.CompanyDAO;
 import junia.lab04.core.entity.Company;
 import junia.lab04.core.service.CompanyService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
 @Controller
 public class CompanyController {
 
-    public CompanyService service;
+    private final CompanyService service;
+
+    public CompanyController(CompanyService service) {
+        this.service = service;
+    }
 
     @GetMapping(value = "/list")
     public String getListOfCompanies(ModelMap modelMap){
-
-        //returns list object
         List<Company> companiesList = service.findAllWithProjects();
-
-        // TO DO : iterate loaded data and append to map
         modelMap.put("companies", companiesList);
 
         return "companiesList";
+    }
+
+    @GetMapping(value = "/form")
+    public String getForm(ModelMap modelMap){
+        Company company = new Company();
+        modelMap.put("company", company);
+
+        return "companyForm";
+    }
+
+    @PostMapping(value = "/form")
+    public String submitForm(@ModelAttribute("company") Company company){
+
+        // Save company data
+
+        return "redirect:list";
     }
 }
