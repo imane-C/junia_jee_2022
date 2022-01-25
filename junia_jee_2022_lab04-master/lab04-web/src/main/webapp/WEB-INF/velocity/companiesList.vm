@@ -24,7 +24,11 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Lab04</a>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./">Lab04</a>
+                <a class="navbar-brand" href="#">Companies List</a>
+                <a class="navbar-brand" href="./form">Add a company</a>
+            </div>
         </div>
     </div>
 </nav>
@@ -33,7 +37,6 @@
 
     <div class="jumbotron">
         <h1>List of companies</h1>
-
     </div>
 
 

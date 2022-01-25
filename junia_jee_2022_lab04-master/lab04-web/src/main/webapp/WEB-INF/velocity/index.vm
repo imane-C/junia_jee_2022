@@ -23,9 +23,9 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="./">Home</a>
+            <a class="navbar-brand" href="#">Home</a>
             <a class="navbar-brand" href="./list">Companies List</a>
-            <a class="navbar-brand" href="#">Add a company</a>
+            <a class="navbar-brand" href="./form">Add a company</a>
         </div>
     </div>
 </nav>
@@ -33,18 +33,9 @@
 <div class="container">
 
     <div class="jumbotron">
-        <h1>Add a company</h1>
+        <h1>Navigate by using the navbar.</h1>
     </div>
 
-    <form action="form" method="POST">
-        <div class="form-group">
-            <label for="name">name</label>
-            #springFormInput("company.name" "class='form-control' id='name' placeholder='name'")
-        </div>
-
-
-        <button type="submit" class="btn btn-default">Submit</button>
-    </form>
 </div>
 
 

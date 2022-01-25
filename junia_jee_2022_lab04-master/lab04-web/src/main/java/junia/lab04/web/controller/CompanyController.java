@@ -22,6 +22,11 @@ public class CompanyController {
         this.service = service;
     }
 
+    @GetMapping(value = "/")
+    public String getHome(){
+        return "index";
+    }
+
     @GetMapping(value = "/list")
     public String getListOfCompanies(ModelMap modelMap){
         List<Company> companiesList = service.findAllWithProjects();
